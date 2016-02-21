@@ -4,6 +4,28 @@ import LinkedListNode from '../linked-list-node';
 
 
 describe('LinkedList', () => {
+    beforeEach(function() {
+        this.list = new LinkedList();
+        this.list.add(1);
+        this.list.add('string');
+        this.list.add([1, 2, 3]);
+    });
+
+    it('should be iterable', function() {
+        let actual = [...this.list];
+        let expected = [1, 'string', [1, 2, 3]];
+        assert.deepEqual(actual, expected);
+    });
+
+    it('should be iterable with a for..of loop', function() {
+        let actual = [];
+        let expected = [1, 'string', [1, 2, 3]];
+        for (let item of this.list) {
+            actual.push(item);
+        }
+        assert.deepEqual(actual, expected);
+    });
+
     describe('.add(item)', () => {
         beforeEach(function() {
             this.list = new LinkedList();
