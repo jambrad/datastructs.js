@@ -25,27 +25,27 @@ class LinkedList {
 
 
     remove(item) {
-        if (this._head) {
-            let node = this._head;
-            let prev = null;
-            while (!deepequal(node.value, item)) {
-                prev = node;
-                node = node.next;
-                if (node === null) {
-                    return false;
+        let node = this._head;
+        let prev = null;
+        while (node !== null) {
+            if (deepequal(node.value, item)) {
+                if (prev === null) {
+                    this._head = this._head.next;
+                    if (this._head === null) {
+                        this._tail = null;
+                    }
+                } else {
+                    prev.next = node.next;
+                    if (node.next === null) {
+                        this._tail = prev;
+                    }
                 }
+                node.next = null;
+                this.length--;
+                return true;
             }
-            if (this._head === node) {
-                this._head = node.next;
-            } else {
-                prev.next = node.next;
-            }
-            if (this._tail === node) {
-                this._tail = prev;
-            }
-            node.next = null;
-            this.length--;
-            return true;
+            prev = node;
+            node = node.next;
         }
         return false;
     }
