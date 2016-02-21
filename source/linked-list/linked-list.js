@@ -68,6 +68,21 @@ class LinkedList {
         }
         return false;
     }
+
+
+    [Symbol.iterator]() {
+        let node = this._head;
+        return {
+            next: () => {
+                let object = { done: node === null };
+                if (!object.done) {
+                    object.value = node ? node.value : undefined;
+                }
+                node = node ? node.next : null;
+                return object;
+            }
+        };
+    }
 }
 
 
