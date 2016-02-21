@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import deepequal from 'deepequal';
 import LinkedListNode from './linked-list-node';
 
