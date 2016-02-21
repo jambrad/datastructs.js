@@ -1,12 +1,25 @@
+import LinkedListNode from './linked-list-node';
+
+
 class LinkedList {
     constructor() {
         Object.defineProperty(this, '_head', { value: null, writable: true });
         Object.defineProperty(this, '_tail', { value: null, writable: true });
+        this.length = 0;
     }
 
 
     add(item) {
-        throw new Error('LinkedList: method "add" not yet implemented.');
+        let node = new LinkedListNode(item);
+        if (this._tail === null) {
+            this._head = node;
+            this._tail = node;
+        } else {
+            this._tail.next = node;
+            this._tail = node;
+        }
+        this.length++;
+        return node;
     }
 
 
@@ -22,11 +35,6 @@ class LinkedList {
 
     contains(item) {
         throw new Error('LinkedList: method "contains" not yet implemented.');
-    }
-
-
-    count() {
-        throw new Error('LinkedList: method "count" not yet implemented.');
     }
 }
 
