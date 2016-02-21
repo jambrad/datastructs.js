@@ -92,4 +92,25 @@ describe('LinkedList', () => {
             assert.equal(this.list.length, 2);
         });
     });
+
+    describe('.contains(item)', () => {
+        beforeEach(function() {
+            this.list = new LinkedList();
+            this.list.add(1);
+            this.list.add('string');
+            this.list.add([1, 2, 3]);
+        });
+
+        it('should return true if item is in the list', function() {
+            assert.equal(this.list.contains(1), true);
+            assert.equal(this.list.contains('string'), true);
+            assert.equal(this.list.contains([1, 2, 3]), true);
+        });
+
+        it('should return false if item is not in the list', function() {
+            assert.equal(this.list.contains(2), false);
+            assert.equal(this.list.contains('lorem'), false);
+            assert.equal(this.list.contains([4, 5, 6]), false);
+        });
+    });
 });

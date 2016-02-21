@@ -57,7 +57,14 @@ class LinkedList {
 
 
     contains(item) {
-        throw new Error('LinkedList: method "contains" not yet implemented.');
+        let node = this._head;
+        while (node !== null) {
+            if (deepequal(node.value, item)) {
+                return true;
+            }
+            node = node.next;
+        }
+        return false;
     }
 }
 
