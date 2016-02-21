@@ -1,1 +1,1 @@
-exports.LinkedList = require('./datastructs/linked-list/linked-list');
+exports.LinkedList = require('./linked-list/linked-list');
