@@ -19,9 +19,11 @@ Javascript implementation of common data structures.
 - Fork this repository.
 - Clone your fork of this repository, and then run the following (assumes that
   you have `npm` and `gulp` installed):
+
   ```
   $ npm install
   $ gulp
   ```
+
 - Write tests for the data structure that you're implementing.
 - When you are done, submit a pull request
