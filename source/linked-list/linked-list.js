@@ -52,7 +52,9 @@ class LinkedList {
 
 
     clear() {
-        throw new Error('LinkedList: method "clear" not yet implemented.');
+        this._head = null;
+        this._tail = null;
+        this.length = 0;
     }
 
 

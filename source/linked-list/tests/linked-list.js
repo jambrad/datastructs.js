@@ -93,6 +93,26 @@ describe('LinkedList', () => {
         });
     });
 
+    describe('.clear()', () => {
+        beforeEach(function() {
+            this.list = new LinkedList();
+            this.list.add(1);
+            this.list.add('string');
+            this.list.add([1, 2, 3]);
+        });
+
+        it('should set head and tail to null', function() {
+            this.list.clear();
+            assert.equal(this.list._head, null);
+            assert.equal(this.list._tail, null);
+        });
+
+        it('should reset the length of the list', function() {
+            this.list.clear();
+            assert.equal(this.list.length, 0);
+        });
+    });
+
     describe('.contains(item)', () => {
         beforeEach(function() {
             this.list = new LinkedList();
