@@ -38,4 +38,23 @@ describe('LinkedListNode', () => {
             assert.equal(node.value, undefined);
         });
     });
+
+    it('should accept LinkedListNode as value for next', () => {
+        let node = new LinkedListNode(1);
+        let next = new LinkedListNode(2);
+        node.next = next;
+        assert.deepEqual(node.next, next);
+    });
+
+    it('should accept null as value for next', () => {
+        let node = new LinkedListNode(1);
+        node.next = null;
+        assert.equal(node.next, null);
+    });
+
+    it('should throw an error for any other value for next', () => {
+        let node = new LinkedListNode(1);
+        assert.throws(() => node.next = 12, Error, 'LinkedListNode: property '
+            + '"next" can only be of type LinkedListNode or null.');
+    });
 });
